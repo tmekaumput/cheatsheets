@@ -1,0 +1,5 @@
+# Create an empty file
+touch <file>
+
+# Create an empty file with specific modified time
+touch -t [[CC]YY]MMDDhhmm[.ss] <file>

@@ -66,5 +66,6 @@ systemctl list-units --type=target
 # To change current target:
 systemctl isolate foo.target
 
-# To change default target:
-systemctl enable foo.target
+# To print the system unit configuration:
+systemctl cat foo.service
+
