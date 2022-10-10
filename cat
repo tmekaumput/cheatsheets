@@ -6,3 +6,9 @@ cat -n <file>
 
 # To display file contents with line numbers (blank lines excluded)
 cat -b <file>
+
+# Create a file with content
+cat > <file> <<EOF
+> line1
+> line2
+> EOF

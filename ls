@@ -22,6 +22,9 @@ ls -ltc
 # To display files sorted by create time:
 ls -lt
 
+# To display files sorted by create time in reverse order:
+ls -lrt
+
 # To display files in a single column:
 ls -1
 
