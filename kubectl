@@ -51,3 +51,12 @@ kubectl get secret <service account name> -n <namespace> -o jsonpath="{.data.tok
 
 # To get CA from a service account's secret
 kubectl get secret <service account name> -n <namespace> -o jsonpath="{.data['ca\.crt']}" | base64 -d
+
+# To get permissions of a cluster role
+kubectl get clusterrole <name> -o json | jq '.rules'
+
+# To create cluster rolebinding with optional user(s), group(s), service account(s)
+kubectl create clusterrolebinding <name> --clusterrole=<role name> --user=<username> --user=<username> --group=<group name> --serviceaccount="<namespace>:<name>" --serviceaccount="<namespace>:<name>"
+
+# To get the details of cluster role binding
+kubectl get clusterrolebinding <name> -o json
