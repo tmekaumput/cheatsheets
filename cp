@@ -17,3 +17,6 @@ cp -P <symlink-dir> <dest-dir>
 
 # To copy sparsely:
 cp --sparse=always <src> <dest>
+
+# To copy a directory with file attributes preserved:
+cp -pr ~/Desktop/cruise_pics/ ~/Pictures/

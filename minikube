@@ -12,3 +12,6 @@ minikube service list
 
 # To start a service in a browser:
 minikube service <service>
+
+# To start minikube with context and specific number of nodes and kubernetes version
+minikube start -p <context name> --nodes <node count> --kubernetes-version=<version>

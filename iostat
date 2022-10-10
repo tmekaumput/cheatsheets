@@ -1,0 +1,8 @@
+# To print IO statistics in megabytes (default is kilobytes)
+iostat -m
+
+# To print extended statistics, i.e. r/s, w/s, await
+iostat -x
+
+# To print extended statistics periodically, i.e. 2 seconds
+iostat -xd 2

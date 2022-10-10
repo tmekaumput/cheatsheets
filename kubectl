@@ -27,3 +27,16 @@ kubectl get events --sort-by='.metadata.creationTimestamp'
 
 # To switch context of a specific cluster:
 kubectl config use-context CONTEXT_NAME [options]
+
+# To display all persistent volumes
+kubectl get pv -A
+
+# To display all persistent volume claims
+kubectl get pvc -A
+
+# To display pod statistics, requires https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml, may also requires "--kubelet-insecure-tls"
+kubectl top pod -n <namespace>
+
+
+
+

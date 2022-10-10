@@ -1,0 +1,5 @@
+# To list disk partitions
+fdisk -l
+
+# To view/edit disk partitions
+fdisk /dev/<disk>

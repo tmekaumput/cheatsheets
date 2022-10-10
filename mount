@@ -12,3 +12,12 @@ mount -t nfs <host>:<remote-dir> <local-dir>
 
 # To mount an ISO:
 mount -o loop disk1.iso /mnt/disk
+
+# To find system mounts
+cat /etc/fstab
+
+# To list disk UUIDs
+ls -al /dev/disk/by-uuid/
+
+# To umount
+umount <mount path>
