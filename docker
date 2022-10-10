@@ -57,3 +57,21 @@ docker login
 
 # To push a docker image into dockerhub repository:
 docker push <image-name>:<image-tag-name>
+
+# To run docker container with limited throughput
+docker run --device-write-bps <device>:<throughput> <image-name> <command>
+
+# To run docker container with limited storage size (may require overlay/xfs)
+docker run --storage-opt size=10GB <image-name> <command>
+
+# To run docker container with limited log retention
+docker run --log-opt max-file=5 --log-opt max-size=10m <image-name> <command>
+
+# To run docker with ulimit
+docker run --ulimit nofile=<soft limit>:<hard limit> <image-name> <command>
+
+# To display IO statistics of docker containers 
+docker stats
+
+# To display mounts of docker container
+docker inspect <container name> | jq '.[0].Mounts'

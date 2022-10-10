@@ -1,0 +1,9 @@
+# To create ext4 file system
+mkfs.ext4 <disk partition>
+
+# To create xfs file system
+mkfs.xfs <disk partition>
+
+# To install xfs
+yum install xfsprogs xfsdump
+apt-get install xfsprogs
