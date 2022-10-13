@@ -37,6 +37,35 @@ kubectl get pvc -A
 # To display pod statistics, requires https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml, may also requires "--kubelet-insecure-tls"
 kubectl top pod -n <namespace>
 
+# To get kubenertes cluster API address
+kubectl get service kubernetes -o json | jq -r '.spec.clusterIP'
 
+# To get kubenertes cluster API address port
+kubectl get service kubernetes -o json | jq -r '.spec.ports[] | select(.name=="https") | .port'
 
+# To get service account secret name
+kubectl get sa <service account name> -n <namespace> -o jsonpath="{.secrets[*]['name']}"
 
+# To get JWT token of a service account's secret
+kubectl get secret <service account name> -n <namespace> -o jsonpath="{.data.token}" | base64 -d
+
+# To get CA from a service account's secret
+kubectl get secret <service account name> -n <namespace> -o jsonpath="{.data['ca\.crt']}" | base64 -d
+
+# To get permissions of a cluster role
+kubectl get clusterrole <name> -o json | jq '.rules'
+
+# To create cluster rolebinding with optional user(s), group(s), service account(s)
+kubectl create clusterrolebinding <name> --clusterrole=<role name> --user=<username> --user=<username> --group=<group name> --serviceaccount="<namespace>:<name>" --serviceaccount="<namespace>:<name>"
+
+# To get the details of cluster role binding
+kubectl get clusterrolebinding <name> -o json
+
+# To scale StatefulSet
+kubectl scale sts -n <namespace> <name> --replicas=<count>
+
+# To get details of StatefulSet in json format
+kubectl get sts -n <namespace> <name> -o json
+
+# To get pod with labels
+kubectl get pod -n <namespace> -l <label1>=<value>,<label2>=<value>,<label3>=<value> -o wide
