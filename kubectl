@@ -60,3 +60,12 @@ kubectl create clusterrolebinding <name> --clusterrole=<role name> --user=<usern
 
 # To get the details of cluster role binding
 kubectl get clusterrolebinding <name> -o json
+
+# To scale StatefulSet
+kubectl scale sts -n <namespace> <name> --replicas=<count>
+
+# To get details of StatefulSet in json format
+kubectl get sts -n <namespace> <name> -o json
+
+# To get pod with labels
+kubectl get pod -n <namespace> -l <label1>=<value>,<label2>=<value>,<label3>=<value> -o wide
