@@ -1,0 +1,11 @@
+# To search without filter base
+ldapsearch -x -D "<binddn>" -b "<base>" -W -H ldap://<server>:<port> -w <password>
+
+# To load data from LDIF
+ldapadd -x -w <password> -H ldap://<server>:<port> -D "<binddn>" -f <filename>.ldif
+
+# To search with filter
+ldapsearch -x -D "<binddn>" -b "<base>" -H ldap://<server>:<port> -w <password> -w <password> -s sub "objectClass=person"
+ldapsearch -x -D "<binddn>" -b "<base>" -H ldap://<server>:<port> -w <password> -w <password> -s sub "objectClass=groupofnames"
+ldapsearch -x -D "<binddn>" -b "<base>" -H ldap://<server>:<port> -w <password> -w <password> -s sub "(|(memberUid=<Username>)(member=<UserDN>)(uniqueMember=<UserDN>))"
+ldapsearch -x -D "<binddn>" -b "<base>" -H ldap://<server>:<port> -w <password> -w <password> -s sub "(cn={{.Username}})"
