@@ -13,3 +13,15 @@ ps -eo pid,user,command
 # Exclude grep from your grepped output of ps.
 # Add [] to the first letter. Ex: sshd -> [s]shd
 ps aux | grep '[h]ttpd'
+
+# To list processes under a user
+ps -fu <username>
+
+# To list processes IDs under a user
+ps -fu <username> | awk '{print $2}'
+
+# FD represents as File descriptor.
+cwd : Current working directory.
+txt : Text file.
+mem : Memory file.
+mmap : Memory mapped device.
