@@ -39,3 +39,12 @@ curl httpbin.org/ip
 
 # To get only the HTTP status code:
 curl -o /dev/null -w '%{http_code}\n' -s -I URL
+
+# To skip server certificate verification
+curl -k <url>
+
+# To supply trusted certificate authority file
+curl --cacert <file> <url>
+
+# To supply client certificate
+curl --cert <certificate> --key <key> <url>
